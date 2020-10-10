@@ -15,7 +15,10 @@ class GildedRose {
         for (Item item : items) {
 
             ItemType itemType = ItemType.fromString(item.name);
-            if (itemType != ItemType.SULFURAS) item.sellIn = item.sellIn - 1;
+
+            item.sellIn = new SellInDaysCalculationAlgorithmFactory()
+                    .getAlgorithm(itemType)
+                    .calculateSellInDays(item.sellIn);
 
             item.quality = new QualityCalculationAlgorithmFactory()
                     .getAlgorithm(itemType)
