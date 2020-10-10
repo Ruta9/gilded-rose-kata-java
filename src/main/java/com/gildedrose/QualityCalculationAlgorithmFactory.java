@@ -12,19 +12,19 @@ public class QualityCalculationAlgorithmFactory {
         QualityCalculationTemplate createAlgorithm();
     }
 
-    private static final Map<String, AlgorithmFactory> algorithmsMap = createMap();
+    private static final Map<ItemType, AlgorithmFactory> algorithmsMap = createMap();
 
-    private static Map<String, AlgorithmFactory> createMap () {
-        Map<String, AlgorithmFactory> map = new HashMap<>();
-        map.put("Sulfuras, Hand of Ragnaros", SulfurasQuality::new);
-        map.put("Aged Brie", DefaultQualityIncreasing::new);
-        map.put("Backstage passes to a TAFKAL80ETC concert", BackstagePassesQuality::new);
+    private static Map<ItemType, AlgorithmFactory> createMap () {
+        Map<ItemType, AlgorithmFactory> map = new HashMap<>();
+        map.put(ItemType.SULFURAS, SulfurasQuality::new);
+        map.put(ItemType.AGED_BRIE, DefaultQualityIncreasing::new);
+        map.put(ItemType.BACKSTAGE_PASSES, BackstagePassesQuality::new);
         return Collections.unmodifiableMap(map);
 
     }
 
-    public QualityCalculationTemplate getAlgorithm(String itemName){
-        AlgorithmFactory factory = algorithmsMap.get(itemName);
+    public QualityCalculationTemplate getAlgorithm(ItemType itemType){
+        AlgorithmFactory factory = algorithmsMap.get(itemType);
         if (factory == null) {
             return new DefaultQualityDecreasing();
         }

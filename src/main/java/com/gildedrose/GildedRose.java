@@ -14,11 +14,12 @@ class GildedRose {
     public void updateQuality() {
         for (Item item : items) {
 
-            if (item.name != "Sulfuras, Hand of Ragnaros") item.sellIn = item.sellIn - 1;
+            ItemType itemType = ItemType.fromString(item.name);
+            if (itemType != ItemType.SULFURAS) item.sellIn = item.sellIn - 1;
 
-            item.quality = new QualityCalculationAlgorithmFactory().getAlgorithm(item.name).calculate(item.sellIn, item.quality);
-
-
+            item.quality = new QualityCalculationAlgorithmFactory()
+                    .getAlgorithm(itemType)
+                    .calculate(item.sellIn, item.quality);
 
         }
     }
