@@ -14,6 +14,8 @@ class GildedRose {
     public void updateQuality() {
         for (Item item : items) {
 
+            if (item.name != "Sulfuras, Hand of Ragnaros") item.sellIn = item.sellIn - 1;
+
             switch (item.name) {
                 case "Sulfuras, Hand of Ragnaros":
                     break;
@@ -27,7 +29,7 @@ class GildedRose {
                     item.quality = new DefaultQualityDecreasing().calculate(item.sellIn, item.quality);
             }
 
-            if (item.name != "Sulfuras, Hand of Ragnaros") item.sellIn = item.sellIn - 1;
+
 
         }
     }

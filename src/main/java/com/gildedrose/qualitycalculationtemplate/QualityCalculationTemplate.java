@@ -18,7 +18,7 @@ public abstract class QualityCalculationTemplate {
 
     private int applyLimit(int quality){
         if (quality > defaultUpperQualityLimit) return defaultUpperQualityLimit;
-        else if (quality < defaultLowerQualityLimit) return defaultLowerQualityLimit;
+        if (quality < defaultLowerQualityLimit) return defaultLowerQualityLimit;
         return quality;
     }
 
