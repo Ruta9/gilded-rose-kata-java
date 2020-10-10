@@ -10,7 +10,7 @@ public class SulfurasTests {
     void doesNotDecreaseInQuality() {
         Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 25, 80) };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.update();
         assertEquals(80, app.items[0].quality);
     }
 
@@ -18,7 +18,7 @@ public class SulfurasTests {
     void sellInDoesNotChange() {
         Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 25, 80) };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.update();
         assertEquals(25, app.items[0].sellIn);
     }
 

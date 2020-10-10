@@ -19,8 +19,8 @@ public class QualityCalculationAlgorithmFactory {
         map.put(ItemType.SULFURAS, SulfurasQuality::new);
         map.put(ItemType.AGED_BRIE, DefaultQualityIncreasing::new);
         map.put(ItemType.BACKSTAGE_PASSES, BackstagePassesQuality::new);
-        return Collections.unmodifiableMap(map);
 
+        return Collections.unmodifiableMap(map);
     }
 
     public QualityCalculationTemplate getAlgorithm(ItemType itemType){

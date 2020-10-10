@@ -16,7 +16,7 @@ public class CommonRulesTests {
                 new Item("Aged Brie", -2, 49)
         };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.update();
         assertEquals(50, app.items[0].quality);
         assertEquals(50, app.items[1].quality);
         assertEquals(50, app.items[2].quality);
@@ -31,7 +31,7 @@ public class CommonRulesTests {
                 new Item("Random item", -1, 0),
         };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.update();
         assertEquals(0, app.items[0].quality);
         assertEquals(0, app.items[1].quality);
     }
@@ -42,7 +42,7 @@ public class CommonRulesTests {
                 new Item("Random item", -1, 5)
         };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.update();
         assertEquals(3, app.items[0].quality);
     }
 }

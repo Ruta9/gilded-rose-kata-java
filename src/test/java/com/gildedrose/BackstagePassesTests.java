@@ -10,7 +10,7 @@ public class BackstagePassesTests {
     void increasesInQualityDefault() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 25, 1) };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.update();
         assertEquals(2, app.items[0].quality);
     }
 
@@ -18,7 +18,7 @@ public class BackstagePassesTests {
     void increasesInQualityLessThanOrEqualTo10() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 10, 1) };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.update();
         assertEquals(3, app.items[0].quality);
     }
 
@@ -26,7 +26,7 @@ public class BackstagePassesTests {
     void increasesInQualityLessThanOrEqualTo5() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 5, 1) };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.update();
         assertEquals(4, app.items[0].quality);
     }
 
@@ -34,7 +34,7 @@ public class BackstagePassesTests {
     void dropsTo0() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 0, 1) };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.update();
         assertEquals(0, app.items[0].quality);
     }
 }

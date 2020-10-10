@@ -11,19 +11,26 @@ class GildedRose {
         this.items = items;
     }
 
-    public void updateQuality() {
+    public void update() {
         for (Item item : items) {
-
-            ItemType itemType = ItemType.fromString(item.name);
-
-            item.sellIn = new SellInDaysCalculationAlgorithmFactory()
-                    .getAlgorithm(itemType)
-                    .calculateSellInDays(item.sellIn);
-
-            item.quality = new QualityCalculationAlgorithmFactory()
-                    .getAlgorithm(itemType)
-                    .calculate(item.sellIn, item.quality);
-
+            updateSellInDays(item);
+            updateQuality(item);
         }
+    }
+
+    private void updateSellInDays(Item item){
+        item.sellIn = new SellInDaysCalculationAlgorithmFactory()
+                .getAlgorithm(getItemType(item.name))
+                .calculateSellInDays(item.sellIn);
+    }
+
+    private void updateQuality(Item item){
+        item.quality = new QualityCalculationAlgorithmFactory()
+                .getAlgorithm(getItemType(item.name))
+                .calculate(item.sellIn, item.quality);
+    }
+
+    private ItemType getItemType (String name){
+        return ItemType.fromString(name);
     }
 }
