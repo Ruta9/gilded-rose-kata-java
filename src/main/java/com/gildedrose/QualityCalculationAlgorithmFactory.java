@@ -19,6 +19,7 @@ public class QualityCalculationAlgorithmFactory {
         map.put(ItemType.SULFURAS, SulfurasQuality::new);
         map.put(ItemType.AGED_BRIE, DefaultQualityIncreasing::new);
         map.put(ItemType.BACKSTAGE_PASSES, BackstagePassesQuality::new);
+        map.put(ItemType.CONJURED, TwiceAsFastQualityDecreasing::new);
 
         return Collections.unmodifiableMap(map);
     }
