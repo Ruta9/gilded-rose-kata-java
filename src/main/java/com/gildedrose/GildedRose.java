@@ -1,9 +1,10 @@
 package com.gildedrose;
 
-import com.gildedrose.qualitycalculationtemplate.BackstagePassesQuality;
-import com.gildedrose.qualitycalculationtemplate.DefaultQualityDecreasing;
-import com.gildedrose.qualitycalculationtemplate.DefaultQualityIncreasing;
 
+/**
+ * Both SellInDaysCalculationAlgorithmFactory and QualityCalculationAlgorithmFactory
+ * should be injected into GildedRose.
+ */
 class GildedRose {
     Item[] items;
 
