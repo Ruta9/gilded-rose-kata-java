@@ -16,18 +16,7 @@ class GildedRose {
 
             if (item.name != "Sulfuras, Hand of Ragnaros") item.sellIn = item.sellIn - 1;
 
-            switch (item.name) {
-                case "Sulfuras, Hand of Ragnaros":
-                    break;
-                case "Aged Brie":
-                    item.quality = new DefaultQualityIncreasing().calculate(item.sellIn, item.quality);
-                    break;
-                case "Backstage passes to a TAFKAL80ETC concert":
-                    item.quality = new BackstagePassesQuality().calculate(item.sellIn, item.quality);
-                    break;
-                default:
-                    item.quality = new DefaultQualityDecreasing().calculate(item.sellIn, item.quality);
-            }
+            item.quality = new QualityCalculationAlgorithmFactory().getAlgorithm(item.name).calculate(item.sellIn, item.quality);
 
 
 
